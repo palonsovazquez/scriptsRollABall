@@ -6,26 +6,30 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // velocidad angular de la bola
     public float speed = 10;
+    //puntuacion del personaje
     public int puntuacion = 0;
-    public GameObject controladororbes;
 
+    // objeto vacion para controlar los orbes
+    public GameObject controladororbes;
+    // texto que muestra la puntuacion
     public Text texto;
-    private Transform posicionoriginal;
+
+    //coordenadas originales
     private float xoriginal, yoriginal, zoriginal;
     void Start()
     {
+        // recojo las coordenadas originales
         xoriginal = transform.position.x;
         yoriginal = transform.position.y;
         zoriginal = transform.position.z;
-        // print("caida x= " + posicionoriginal.transform.position.x + " y= " + posicionoriginal.transform.position.y + " z= " + posicionoriginal.transform.position.z);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-
+        //si se cae resetea la posicion y la puntuacion
         if (transform.position.y < 0)
         {
             print("caida");
@@ -34,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
             puntuacion = 0;
             texto.text = ("Puntuacion: " + puntuacion);
         }
+
+        // bloque de control del movimiento
 
         if (gameObject.GetComponent<InputControles>().adelantePulsado)
         {
@@ -61,6 +67,8 @@ public class PlayerMovement : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+
+        // control de la puntuacion al recoger un pickup y genera uno nuevo        
         if (other.gameObject.CompareTag("PickUp"))
         {
             puntuacion += 1;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class testtrigger : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // Clase creada para ver las diferencias en que un collider sea trigger y no
     void Start()
     {
 
@@ -17,27 +17,28 @@ public class testtrigger : MonoBehaviour
     }
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("istrigger"))
+        if (other.gameObject.CompareTag("istrigger")) // comprueba si la colision fue con uno de los cubos test tagueados como "istrigger"
         {
+            // si lo es colorea la bola de amarillo
             GetComponent<Renderer>().material.color = Color.yellow;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (true)
+
+        if (other.gameObject.CompareTag("istrigger")) // comprueba si la colision fue con uno de los cubos test tagueados como "istrigger"
         {
-            if (other.gameObject.CompareTag("istrigger"))
-            {
-                other.GetComponent<Renderer>().material.color = Color.green;
-            }
+            other.GetComponent<Renderer>().material.color = Color.green; // lo pinta de verde
         }
+
     }
     private void OnTriggerExit(Collider other)
     {
+        // comprueba si la colision fue con uno de los cubos test tagueados como "istrigger"
         if (other.gameObject.CompareTag("istrigger"))
         {
-            other.GetComponent<Renderer>().material.color = Color.black;
+            other.GetComponent<Renderer>().material.color = Color.black; // lo pinta de negro
         }
     }
 }

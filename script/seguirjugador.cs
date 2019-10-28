@@ -19,6 +19,8 @@ public class seguirjugador : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+
+        //deteccion de que el enemigo te pilla, resetea la puntuacion
         if (other.tag == "Player")
         {
             dentro = true;
@@ -36,10 +38,10 @@ public class seguirjugador : MonoBehaviour
             dentro = false;
         }
     }
-    // Update is called once per frame
+
     void Update()
     {
-
+        // control del enemigo mediante el navmesh y la animacion
         if (!dentro)
         {
             enemigo.destination = jugador.position;

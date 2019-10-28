@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class InputControles : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // Prototipo para convertir a interface el control del jugador
 
     private KeyCode adelante = KeyCode.W;
     private KeyCode atras = KeyCode.S;

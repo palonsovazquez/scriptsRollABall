@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // Esta clase controla la posicion de la camara para que siga al jugador
     public GameObject player;
     private Vector3 offset;
     void Start()
@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour
         offset = transform.position - player.transform.position;
     }
 
-    // Update is called once per frame
+
     void LateUpdate()
     {
         gameObject.transform.position = player.transform.position + offset;
