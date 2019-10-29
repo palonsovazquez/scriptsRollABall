@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public int inputType = 0;
+    public string horizontalAxis;
+    public string verticallAxis;
+    // interfaceControles x;
     // velocidad angular de la bola
     public float speed = 10;
     //puntuacion del personaje
@@ -20,6 +24,28 @@ public class PlayerMovement : MonoBehaviour
     private float xoriginal, yoriginal, zoriginal;
     void Start()
     {
+        // implemento la clase de control
+
+
+        switch (inputType)
+        {
+            case 0:
+                {
+                    // x = new InputControles();
+
+                }
+
+                break;
+            case 1:
+                {
+
+                }
+                break;
+
+
+
+        }
+
         // recojo las coordenadas originales
         xoriginal = transform.position.x;
         yoriginal = transform.position.y;
@@ -40,27 +66,28 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // bloque de control del movimiento
+        gameObject.GetComponent<Rigidbody>().AddTorque(new Vector3(Input.GetAxis(verticallAxis) * speed, 0, -Input.GetAxis(horizontalAxis) * speed));
 
-        if (gameObject.GetComponent<InputControles>().adelantePulsado)
-        {
-            gameObject.GetComponent<Rigidbody>().AddTorque(new Vector3(speed, 0, 0));
+        // if (gameObject.GetComponent<InputControles>().adelantePulsado)
+        // {
+        //     gameObject.GetComponent<Rigidbody>().AddTorque(new Vector3(speed, 0, 0));
 
-        }
-        if (gameObject.GetComponent<InputControles>().atrasPulsado)
-        {
-            gameObject.GetComponent<Rigidbody>().AddTorque(new Vector3(-speed, 0, 0));
+        // }
+        // if (gameObject.GetComponent<InputControles>().atrasPulsado)
+        // {
+        //     gameObject.GetComponent<Rigidbody>().AddTorque(new Vector3(-speed, 0, 0));
 
-        }
-        if (gameObject.GetComponent<InputControles>().derechaPulsado)
-        {
-            gameObject.GetComponent<Rigidbody>().AddTorque(new Vector3(0, 0, -speed));
+        // }
+        // if (gameObject.GetComponent<InputControles>().derechaPulsado)
+        // {
+        //     gameObject.GetComponent<Rigidbody>().AddTorque(new Vector3(0, 0, -speed));
 
-        }
-        if (gameObject.GetComponent<InputControles>().izquierdaPulsado)
-        {
-            gameObject.GetComponent<Rigidbody>().AddTorque(new Vector3(0, 0, speed));
+        // }
+        // if (gameObject.GetComponent<InputControles>().izquierdaPulsado)
+        // {
+        //     gameObject.GetComponent<Rigidbody>().AddTorque(new Vector3(0, 0, speed));
 
-        }
+        // }
 
 
     }
