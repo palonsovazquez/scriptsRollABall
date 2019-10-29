@@ -53,12 +53,14 @@ public class seguirjugador : MonoBehaviour
         if (enemigo.remainingDistance < distancia)
         {
             jugador.GetComponent<Animator>().SetInteger("estado", 1);
-            print("sin peligro");
+            if (debugprofile.estadodebug)
+                print("sin peligro");
 
         }
         else
         {
-            print("peligro");
+            if (debugprofile.estadodebug)
+                print("peligro");
             jugador.GetComponent<Animator>().SetInteger("estado", 0);
 
 

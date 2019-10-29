@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿/* using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -59,7 +59,7 @@ public class InputControles : interfaceControles
         if (Input.GetKey(adelante))
         {
             adelantePulsado = true;
-            //print("adelante" + adelantePulsado);
+
         }
         else
         {
@@ -155,3 +155,4 @@ public class InputControles : interfaceControles
 
     }
 }
+ */

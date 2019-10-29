@@ -58,7 +58,8 @@ public class PlayerMovement : MonoBehaviour
         //si se cae resetea la posicion y la puntuacion
         if (transform.position.y < 0)
         {
-            print("caida");
+            if (debugprofile.estadodebug)
+                print("caida");
             gameObject.transform.position.Set(xoriginal, yoriginal, zoriginal);
             transform.SetPositionAndRotation(new Vector3(xoriginal, yoriginal, zoriginal), new Quaternion(0, 0, 0, 0));
             puntuacion = 0;
@@ -99,7 +100,8 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("PickUp"))
         {
             puntuacion += 1;
-            print("colision" + " " + other.gameObject.tag + " " + puntuacion);
+            if (debugprofile.estadodebug)
+                print("colision" + " " + other.gameObject.tag + " " + puntuacion);
             texto.text = ("Puntuacion: " + puntuacion);
 
             Destroy(other.gameObject);
